@@ -1,0 +1,431 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl() {
+   canSaveDynamicFields = "0";
+   isContainer = "1";
+   Profile = "GuiDefaultProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   Position = "0 0";
+   Extent = "1024 768";
+   MinExtent = "8 2";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "GuiToolTipProfile";
+   hovertime = "1000";
+
+   new GuiContainer(ShapeEdPreviewGui) {
+      canSaveDynamicFields = "0";
+      isContainer = "1";
+      Profile = "GuiDefaultProfile";
+      HorizSizing = "width";
+      VertSizing = "height";
+      Position = "0" SPC (getWord(EditorGuiToolbar.extent, 1)-1);
+      Docking = "Client";
+      MinExtent = "8 8";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+
+      new GuiSwatchButtonCtrl() {
+         internalName = "previewBackground";
+         canSaveDynamicFields = "0";
+         isContainer = "0";
+         Profile = "GuiInspectorSwatchButtonProfile";
+         HorizSizing = "width";
+         VertSizing = "height";
+         Position = "-210 -40";
+         Extent = getWord(ShapeEdPreviewGui.extent,0)+212
+            SPC  getWord(ShapeEdPreviewGui.extent,0)+42;
+         MinExtent = "8 8";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         color = "0 0 0 .39";
+      };
+      new GuiShapeEdPreview(ShapeEdShapeView) {
+         canSaveDynamicFields = "0";
+         isContainer = "0";
+         Profile = "GuiDefaultProfile";
+         HorizSizing = "width";
+         VertSizing = "height";
+         Position = "-209 -90";
+         Extent = getWord(ShapeEdPreviewGui.extent,0)+209
+            SPC getWord(ShapeEdPreviewGui.extent, 1)+90;
+         MinExtent = "8 8";
+         canSave = "1";
+         Visible = "1";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+         Margin = "0 0 0 0";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         renderMissionArea = "0";
+         GizmoProfile = "GlobalGizmoProfile";
+         cameraZRot = "0";
+         forceFOV = "0";
+         renderNodes = "1";
+         selectedNode = "-1";
+      };
+   };
+};
+
+// The shape preview control window
+new GuiControl() {
+   canSaveDynamicFields = "0";
+   isContainer = "1";
+   Profile = "GuiDefaultProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   Position = "0 0";
+   Extent = "1024 768";
+   MinExtent = "8 2";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "GuiToolTipProfile";
+   hovertime = "1000";
+
+   new GuiWindowCtrl(ShapeEdPreviewWindow) {
+      canSaveDynamicFields = "0";
+      isContainer = "1";
+      Profile = "GuiToolbarWindowProfile";
+      HorizSizing = "width";
+      VertSizing = "top";
+      Position = -1 SPC getWord(ShapeEdPreviewGui.extent,0)-94;
+      Extent = "817 53";
+      MinExtent = "475 53";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      Margin = "4 4 4 4";
+      Padding = "0 0 0 0";
+      AnchorTop = "1";
+      AnchorBottom = "0";
+      AnchorLeft = "1";
+      AnchorRight = "0";
+      resizeWidth = "1";
+      resizeHeight = "0";
+      canMove = "1";
+      canClose = "0";
+      canMinimize = "0";
+      canMaximize = "0";
+      minSize = "50 50";
+      EdgeSnap = "0";
+      canCollapse = "0";
+      text = "";
+
+      new GuiContainer() {
+         canSaveDynamicFields = "0";
+         isContainer = "1";
+         Profile = "GuiDefaultProfile";
+         HorizSizing = "width";
+         VertSizing = "top";
+         Position = "5 10";
+         Extent = "809 ";
+         MinExtent = "8 8";
+         canSave = "1";
+         Visible = "1";
+         tooltipprofile = "GuiToolTipProfile";
+         hovertime = "1000";
+
+         // Sequence playback controls
+         new GuiControl() {
+            canSaveDynamicFields = "0";
+            isContainer = "1";
+            Profile = "GuiDefaultProfile";
+            HorizSizing = "width";
+            VertSizing = "top";
+            Position = "0 3";
+            Extent = "809 38";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+
+            new GuiTextCtrl() {
+               HorizSizing = "left";
+               VertSizing = "top";
+               position = "740 19";
+               Extent = "35 16";
+               text = "Frame:";
+            };
+            new GuiTextCtrl() {
+               HorizSizing = "left";
+               VertSizing = "top";
+               Profile = "GuiTextProfile";
+               position = "778 19";
+               Extent = "26 18";
+               Variable = "$ShapeEdCurrentFrame";
+            };
+
+            new GuiTextEditCtrl() {
+               internalName = "seqIn";
+               canSaveDynamicFields = "0";
+               isContainer = "0";
+               Profile = "GuiTextEditProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               Position = "0 0";
+               Extent = "28 18";
+               MinExtent = "8 2";
+               canSave = "1";
+               Visible = "1";
+               AltCommand = "ShapeEdSequences.onEditSeqInOut(\"in\", $ThisControl.getText());";
+               tooltipprofile = "GuiToolTipProfile";
+               ToolTip = "Set the In Point to the Current Frame";
+               hovertime = "1000";
+               Margin = "0 0 0 0";
+               Padding = "0 0 0 0";
+               AnchorTop = "1";
+               AnchorBottom = "0";
+               AnchorLeft = "1";
+               AnchorRight = "0";
+               maxLength = "5";
+               historySize = "0";
+               password = "0";
+               tabComplete = "0";
+               sinkAllKeyEvents = "0";
+               passwordMask = "*";
+            };
+            
+            new GuiSliderCtrl(ShapeEdSeqSlider) {
+               canSaveDynamicFields = "0";
+               isContainer = "0";
+               Profile = "GuiSliderProfile";
+               HorizSizing = "width";
+               VertSizing = "bottom";
+               Position = "35 4";
+               Extent = "736 20";
+               MinExtent = "8 2";
+               canSave = "1";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               range = "0 255";
+               ticks = "0";
+               value = "0";
+               Variable = "$ShapeEdCurrentFrame";
+            };
+            
+            new GuiTextEditCtrl() {
+               internalName = "seqOut";
+               canSaveDynamicFields = "0";
+               isContainer = "0";
+               Profile = "GuiTextEditProfile";
+               HorizSizing = "left";
+               VertSizing = "bottom";
+               Position = "778 0";
+               Extent = "28 18";
+               MinExtent = "8 2";
+               canSave = "1";
+               Visible = "1";
+               AltCommand = "ShapeEdSequences.onEditSeqInOut(\"out\", $ThisControl.getText());";
+               tooltipprofile = "GuiToolTipProfile";
+               ToolTip = "Set the Out Point to the Current Frame";
+               hovertime = "1000";
+               Margin = "0 0 0 0";
+               Padding = "0 0 0 0";
+               AnchorTop = "1";
+               AnchorBottom = "0";
+               AnchorLeft = "1";
+               AnchorRight = "0";
+               maxLength = "5";
+               historySize = "0";
+               password = "0";
+               tabComplete = "0";
+               sinkAllKeyEvents = "0";
+               passwordMask = "*";
+            };
+
+            // VCR style buttons: back step_back play step_fwd fwd
+            new GuiControl() {
+               canSaveDynamicFields = "0";
+               isContainer = "1";
+               Profile = "GuiDefaultProfile";
+               HorizSizing = "center";
+               VertSizing = "top";
+               Position = "282 17";
+               Extent = "244 18";
+               MinExtent = "8 2";
+               canSave = "1";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+
+               new GuiButtonCtrl() {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "0 0";
+                  Extent = "28 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdSequences.onEditSeqInOut(\"in\", ShapeEdSeqSlider.getValue());";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Set the in position to the current frame (I)";
+                  hovertime = "1000";
+                  text = "in";
+                  groupNum = "-1";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+               };
+               new GuiButtonCtrl() {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "left";
+                  VertSizing = "bottom";
+                  Position = "216 0";
+                  Extent = "28 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdSequences.onEditSeqInOut(\"out\", ShapeEdSeqSlider.getValue());";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Set the out position to the current frame (O)";
+                  hovertime = "1000";
+                  text = "out";
+                  groupNum = "-1";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+               };
+               new GuiBitmapButtonCtrl() {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "48 0";
+                  Extent = "18 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdSeqSlider.setValue(ShapeEdPreviewWindow-->seqIn.getText());";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Skip to in frame (SHIFT -)";
+                  hovertime = "1000";
+                  groupNum = "0";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+                  bitmap = "tools/shapeEditor/images/back_btn";
+               };
+               new GuiBitmapButtonCtrl() {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "76 0";
+                  Extent = "18 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdSeqSlider.setValue(mCeil(ShapeEdSeqSlider.getValue() - 1));";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Previous frame (-)";
+                  hovertime = "1000";
+                  groupNum = "0";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+                  bitmap = "tools/shapeEditor/images/stepback_btn";
+               };
+               new GuiBitmapButtonCtrl() {
+                  internalName = "playBtn";
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "114 0";
+                  Extent = "18 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdPreviewWindow.togglePlayMode();";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Play/Pause (SPACE)";
+                  hovertime = "1000";
+                  groupNum = "0";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+                  bitmap = "tools/shapeEditor/images/play_btn";
+               };
+               new GuiBitmapButtonCtrl() {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "151 0";
+                  Extent = "18 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdSeqSlider.setValue(mFloor(ShapeEdSeqSlider.getValue() + 1));";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Next frame (+)";
+                  hovertime = "1000";
+                  groupNum = "0";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+                  bitmap = "tools/shapeEditor/images/stepfwd_btn";
+               };
+               new GuiBitmapButtonCtrl() {
+                  canSaveDynamicFields = "0";
+                  isContainer = "0";
+                  Profile = "GuiButtonProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "180 0";
+                  Extent = "18 18";
+                  MinExtent = "8 2";
+                  canSave = "1";
+                  Visible = "1";
+                  Command = "ShapeEdSeqSlider.setValue(ShapeEdPreviewWindow-->seqOut.getText());";
+                  tooltipprofile = "GuiToolTipProfile";
+                  ToolTip = "Skip to out frame (SHIFT +)";
+                  hovertime = "1000";
+                  groupNum = "0";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+                  bitmap = "tools/shapeEditor/images/fwd_btn";
+               };
+            };
+         };
+         new GuiBitmapButtonCtrl() {
+            internalName = "seqInBar";
+            Profile = "GuiDefaultProfile";
+            HorizSizing = "right";
+            VertSizing = "bottom";
+            position = "39 0";
+            Extent = "8 13";
+            MinExtent = "1 1";
+            bitmap = "tools/shapeEditor/images/seq_bar-in";
+            ToolTip = "Set the In Point to the Current Frame";
+            Command = "ShapeEdSequences.onEditSeqInOut(\"in\", ShapeEdSeqSlider.getValue());";
+         };
+         new GuiBitmapButtonCtrl() {
+            internalName = "seqOutBar";
+            Profile = "GuiDefaultProfile";
+            HorizSizing = "left";
+            VertSizing = "bottom";
+            position = "765 0";
+            Extent = "8 13";
+            MinExtent = "1 1";
+            bitmap = "tools/shapeEditor/images/seq_bar-out";
+            ToolTip = "Set the Out Point to the Current Frame";
+            Command = "ShapeEdSequences.onEditSeqInOut(\"out\", ShapeEdSeqSlider.getValue());";
+         };      
+      };
+   };
+};
+
+//--- OBJECT WRITE END ---

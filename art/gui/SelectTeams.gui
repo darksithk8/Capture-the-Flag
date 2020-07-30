@@ -1,0 +1,113 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(SelectTeams) {
+   isContainer = "1";
+   Profile = "GuiDefaultProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   position = "0 0";
+   Extent = "1024 768";
+   MinExtent = "8 2";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "GuiToolTipProfile";
+   hovertime = "1000";
+   canSaveDynamicFields = "1";
+
+   new GuiButtonCtrl() {
+      text = "Team1";
+      groupNum = "-1";
+      buttonType = "PushButton";
+      useMouseEvents = "0";
+      isContainer = "0";
+      Profile = "GuiButtonProfile";
+      HorizSizing = "right";
+      VertSizing = "bottom";
+      position = "317 323";
+      Extent = "140 30";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      canSaveDynamicFields = "0";
+      Command = "SelectTeams(1);";
+   };
+   new GuiButtonCtrl() {
+      text = "Team2";
+      groupNum = "-1";
+      buttonType = "PushButton";
+      useMouseEvents = "0";
+      isContainer = "0";
+      Profile = "GuiButtonProfile";
+      HorizSizing = "right";
+      VertSizing = "bottom";
+      position = "551 323";
+      Extent = "140 30";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      canSaveDynamicFields = "0";
+      Command = "SelectTeams(2);";
+   };
+   new GuiTextCtrl() {
+      text = "OR";
+      maxLength = "1024";
+      Margin = "0 0 0 0";
+      Padding = "0 0 0 0";
+      AnchorTop = "1";
+      AnchorBottom = "0";
+      AnchorLeft = "1";
+      AnchorRight = "0";
+      isContainer = "0";
+      Profile = "GuiTextProfile";
+      HorizSizing = "right";
+      VertSizing = "bottom";
+      position = "494 330";
+      Extent = "22 17";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      canSaveDynamicFields = "0";
+   };
+   new GuiButtonCtrl() {
+      text = "Just enjoy watching";
+      groupNum = "-1";
+      buttonType = "PushButton";
+      useMouseEvents = "0";
+      isContainer = "0";
+      Profile = "GuiButtonProfile";
+      HorizSizing = "right";
+      VertSizing = "bottom";
+      position = "435 391";
+      Extent = "140 30";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      canSaveDynamicFields = "0";
+      Command = "SpawnAsCamera();";
+      
+   };
+};
+//--- OBJECT WRITE END ---
+
+function SelectTeams(%team)
+{
+   //pass %characterId from client to server
+   commandtoserver('pickTeam', %team);
+   
+   //Hide the dialog once selection was made  
+   Canvas.popDialog(SelectTeams); 
+}
+
+function SpawnAsCamera()
+{   
+   //Hide the dialog once selection was made  
+   Canvas.popDialog(SelectTeams); 
+}
+

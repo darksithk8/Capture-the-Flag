@@ -1,0 +1,71 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiFadeinBitmapCtrl(StartupGui) {
+   fadeInTime = "1000";
+   waitTime = "4000";
+   fadeOutTime = "1000";
+   done = "1";
+   bitmap = "art/gui/background";
+   wrap = "0";
+   isContainer = "1";
+   Profile = "GuiInputCtrlProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   position = "0 0";
+   Extent = "1024 768";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "GuiToolTipProfile";
+   hovertime = "1000";
+   canSaveDynamicFields = "1";
+      bitmap0 = "art/gui/background";
+      enabled = "1";
+      logo0 = "art/gui/Torque-3D-logo";
+      logoExtent0 = "443 139";
+      logoPos0 = "178 251";
+
+   new GuiBitmapButtonCtrl() {
+      bitmap = "art/gui/Torque-3D-logo";
+      groupNum = "-1";
+      buttonType = "PushButton";
+      useMouseEvents = "0";
+      isContainer = "0";
+      Profile = "GuiDefaultProfile";
+      HorizSizing = "center";
+      VertSizing = "center";
+      position = "776 25";
+      Extent = "212 65";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      Command = "StartupGui.click();";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      internalName = "StartupLogo";
+      canSaveDynamicFields = "1";
+         enabled = "1";
+         wrap = "0";
+   };
+   new GuiBitmapButtonCtrl() {
+      groupNum = "-1";
+      buttonType = "PushButton";
+      useMouseEvents = "0";
+      isContainer = "0";
+      Profile = "GuiDefaultProfile";
+      HorizSizing = "left";
+      VertSizing = "top";
+      position = "499 608";
+      Extent = "530 171";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "0";
+      Command = "StartupGui.click();";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      internalName = "StartupLogoSecondary";
+      canSaveDynamicFields = "1";
+         enabled = "1";
+         wrap = "0";
+   };
+};
+//--- OBJECT WRITE END ---

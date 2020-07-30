@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>gratkr</author>
+      <authoring_tool>OpenCOLLADA for 3ds Max;  Version: 1.2.5;  Revision: 673;  Platform: Win32;  Configuration: Release Max2010</authoring_tool>
+      <source_data>file:///F:/Moje%20dokumnety/Tafe/Diploma/Advanced%20Torque/CTF/art/shapes/JediFlags/Flag1.max</source_data>
+    </contributor>
+    <created>2010-06-16T15:54:02</created>
+    <modified>2010-06-16T15:54:02</modified>
+    <unit name="inch" meter="0.0254"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="Material__0">
+      <profile_COMMON>
+        <newparam sid="UnrapFlag2_png-surface">
+          <surface type="2D">
+            <init_from>UnrapFlag2_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="UnrapFlag2_png-sampler">
+          <sampler2D>
+            <source>UnrapFlag2_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0.588 0.588 0.588 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="UnrapFlag2_png-sampler" texcoord="CHANNEL1"/>
+            </diffuse>
+            <specular>
+              <color>0.9 0.9 0.9 1</color>
+            </specular>
+            <shininess>
+              <float>10</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <transparent opaque="A_ONE">
+              <color>1 1 1 1</color>
+            </transparent>
+            <transparency>
+              <float>1</float>
+            </transparency>
+          </blinn>
+        </technique>
+      </profile_COMMON>
+      <extra>
+        <technique profile="OpenCOLLADA3dsMax">
+          <extended_shader>
+            <apply_reflection_dimming>0</apply_reflection_dimming>
+            <dim_level>0</dim_level>
+            <falloff_type>0</falloff_type>
+            <index_of_refraction>1.5</index_of_refraction>
+            <opacity_type>0</opacity_type>
+            <reflection_level>3</reflection_level>
+            <wire_size>1</wire_size>
+            <wire_units>0</wire_units>
+          </extended_shader>
+          <shader>
+            <ambient_diffuse_lock>1</ambient_diffuse_lock>
+            <ambient_diffuse_texture_lock>1</ambient_diffuse_texture_lock>
+            <diffuse_specular_lock>0</diffuse_specular_lock>
+            <soften>0.1</soften>
+            <use_self_illum_color>0</use_self_illum_color>
+          </shader>
+        </technique>
+      </extra>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Material__0-material" name="Material__0">
+      <instance_effect url="#Material__0"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="geom-Box01" name="Box01">
+      <mesh>
+        <source id="geom-Box01-positions">
+          <float_array id="geom-Box01-positions-array" count="132">-12.08791 -10.62271 0 12.08791 -10.62271 0 -12.08791 10.62271 0 12.08791 10.62271 0 -12.08791 -10.62271 1.0989 12.08791 -10.62271 1.0989 -12.08791 10.62271 1.0989 12.08791 10.62271 1.0989 0.4995221 -60.12764 1.337097 0.4693684 -60.12764 1.166087 0.3825443 -60.12764 1.015703 0.249522 -60.12764 0.9040844 0.08634611 -60.12764 0.8446933 -0.08730209 -60.12764 0.8446933 -0.250478 -60.12764 0.9040844 -0.3835002 -60.12764 1.015703 -0.4703242 -60.12764 1.166087 -0.5004779 -60.12764 1.337097 -0.4703243 -60.12764 1.508107 -0.3835002 -60.12764 1.658491 -0.2504781 -60.12764 1.77011 -0.08730224 -60.12764 1.829501 0.0863459 -60.12764 1.829501 0.2495218 -60.12764 1.77011 0.3825441 -60.12764 1.658491 0.4693682 -60.12764 1.508108 0.4995221 -10.12764 1.337095 0.4693684 -10.12764 1.166085 0.3825443 -10.12764 1.015701 0.249522 -10.12764 0.9040823 0.08634611 -10.12764 0.8446911 -0.08730209 -10.12764 0.8446912 -0.250478 -10.12764 0.9040823 -0.3835002 -10.12764 1.015701 -0.4703242 -10.12764 1.166085 -0.5004779 -10.12764 1.337095 -0.4703243 -10.12764 1.508105 -0.3835002 -10.12764 1.658489 -0.2504781 -10.12764 1.770108 -0.08730224 -10.12764 1.829499 0.0863459 -10.12764 1.829499 0.2495218 -10.12764 1.770108 0.3825441 -10.12764 1.658489 0.4693682 -10.12764 1.508105</float_array>
+          <technique_common>
+            <accessor source="#geom-Box01-positions-array" count="44" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-Box01-normals">
+          <float_array id="geom-Box01-normals-array" count="288">0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 -2.09679e-10 1.29079e-6 0.939693 -1.48894e-8 -0.342019 0.9396921 -1.52837e-8 -0.3420212 1 -3.9904e-14 -9.24747e-7 0.7660452 -2.75854e-8 -0.6427867 0.7660436 -2.81894e-8 -0.6427885 0.5000008 -3.77332e-8 -0.8660249 0.499999 -3.71658e-8 -0.8660259 0.1736492 -4.28334e-8 -0.9848076 0.1736469 -4.28699e-8 -0.9848079 -0.173647 -4.22634e-8 -0.9848079 -0.1736494 -4.28673e-8 -0.9848076 -0.499999 -3.71658e-8 -0.866026 -0.5000009 -3.71658e-8 -0.8660249 -0.7660436 -2.75855e-8 -0.6427885 -0.766045 -2.75854e-8 -0.6427867 -0.9396923 -1.4678e-8 -0.3420212 -0.939693 -1.46779e-8 -0.3420191 -1 2.0968e-10 -1.25676e-6 -0.9999999 4.50714e-14 1.04997e-6 -0.9396931 1.48894e-8 0.3420188 -0.9396924 1.52836e-8 0.3420208 -0.7660453 2.75854e-8 0.6427866 -0.7660439 2.81894e-8 0.6427881 -0.5000013 3.83007e-8 0.8660247 -0.499999 3.71658e-8 0.8660259 -0.1736499 4.46113e-8 0.9848074 -0.1736474 4.34764e-8 0.9848079 0.1736466 4.34764e-8 0.984808 0.1736486 4.46113e-8 0.9848076 0.4999985 3.80911e-8 0.8660262 0.5000005 3.83007e-8 0.8660251 0.7660432 2.85141e-8 0.6427889 0.7660449 2.81927e-8 0.6427871 0.9396921 1.4678e-8 0.3420216 0.9396927 1.52818e-8 0.3420196 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0</float_array>
+          <technique_common>
+            <accessor source="#geom-Box01-normals-array" count="96" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-Box01-map1">
+          <float_array id="geom-Box01-map1-array" count="312">0.795709 0.4932028 0 0.795709 0.6654027 0 0.5899065 0.6654027 0 0.5899065 0.4932027 0 0.1455168 0.4885683 0 0.3513193 0.4885682 0 0.3513194 0.6607682 0 0.1455168 0.6607682 0 0.09045774 0.6974328 0 0.2676404 0.6974328 0 0.2676404 0.706097 0 0.09045774 0.706097 0 0.8255787 0.6974328 0 0.9812846 0.6974328 0 0.9812846 0.706097 0 0.8255787 0.706097 0 0.2766093 0.6974328 0 0.453792 0.6974328 0 0.453792 0.706097 0 0.2766093 0.706097 0 0.09045774 0.7669563 0 0.2461637 0.7669563 0 0.2461637 0.7756205 0 0.09045774 0.7756205 0 0.462761 0.7079751 0 0.462761 0.7066268 0 0.6895513 0.09195187 0 0.6906837 0.09195187 0 0.6906837 0.4972154 0 0.6895513 0.4972154 0 0.6920727 0.09195187 0 0.6920727 0.4972154 0 0.6089814 0.7749645 0 0.6089814 0.7761502 0 0.2425354 0.7761502 0 0.2451535 0.08731739 0 0.2462858 0.08731739 0 0.2462858 0.4925809 0 0.2451535 0.4925809 0 0.2476749 0.08731739 0 0.2476749 0.4925809 0 0.8292069 0.7066268 0 0.8292069 0.7079751 0 0.462761 0.7054411 0 0.693551 0.09195187 0 0.6935509 0.4972154 0 0.6949401 0.09195187 0 0.69494 0.4972154 0 0.6960725 0.09195187 0 0.6960725 0.4972154 0 0.2425354 0.7749645 0 0.6089814 0.7774985 0 0.2425354 0.7774985 0 0.2491531 0.08731739 0 0.2491531 0.4925809 0 0.2505422 0.08731739 0 0.2505422 0.4925809 0 0.2516746 0.08731739 0 0.2516746 0.4925809 0 0.8292069 0.7054411 0 0.182489 0.7093234 0 0.1818527 0.7105091 0 0.1808778 0.7113892 0 0.1796819 0.7118574 0 0.1784092 0.7118574 0 0.1772134 0.7113892 0 0.1762384 0.7105091 0 0.1756021 0.7093234 0 0.1753811 0.7079751 0 0.1756021 0.7066268 0 0.1762384 0.7054411 0 0.1772134 0.704561 0 0.1784092 0.7040927 0 0.1796819 0.7040927 0 0.1808778 0.704561 0 0.1818527 0.7054411 0 0.182489 0.7066268 0 0.1827101 0.7079751 0 0.3615397 0.7079751 0 0.3617607 0.7066268 0 0.362397 0.7054411 0 0.3633719 0.704561 0 0.3645678 0.7040927 0 0.3658405 0.7040927 0 0.3670364 0.704561 0 0.3680113 0.7054411 0 0.3686477 0.7066268 0 0.3688686 0.7079751 0 0.3686477 0.7093234 0 0.3680113 0.7105091 0 0.3670364 0.7113892 0 0.3658405 0.7118574 0 0.3645678 0.7118574 0 0.3633719 0.7113892 0 0.362397 0.7105091 0 0.3617607 0.7093234 0 0.462761 0.7105091 0 0.462761 0.7093234 0 0.8292069 0.7093234 0 0.8292069 0.7105091 0 0.6089814 0.7788469 0 0.2425354 0.7788468 0 0.6089814 0.7800326 0 0.2425354 0.7800325 0</float_array>
+          <technique_common>
+            <accessor source="#geom-Box01-map1-array" count="104" stride="3">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+              <param name="P" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="geom-Box01-vertices">
+          <input semantic="POSITION" source="#geom-Box01-positions"/>
+        </vertices>
+        <triangles material="Material__0_1" count="80">
+          <input semantic="VERTEX" source="#geom-Box01-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#geom-Box01-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#geom-Box01-map1" offset="2" set="1"/>
+          <p>0 0 0 2 1 1 3 2 2 3 2 2 1 3 3 0 0 0 4 4 4 5 5 5 7 6 6 7 6 6 6 7 7 4 4 4 0 8 8 1 9 9 5 10 10 5 10 10 4 11 11 0 8 8 1 12 12 3 13 13 7 14 14 7 14 14 5 15 15 1 12 12 3 16 16 2 17 17 6 18 18 6 18 18 7 19 19 3 16 16 2 20 20 0 21 21 4 22 22 4 22 22 6 23 23 2 20 20 8 24 24 9 25 25 27 26 41 27 26 41 26 27 42 8 24 24 9 25 25 10 28 43 28 29 59 28 29 59 27 26 41 9 25 25 10 28 26 11 30 27 29 31 28 29 31 28 28 29 29 10 28 26 11 30 27 12 32 30 30 33 31 30 33 31 29 31 28 11 30 27 12 32 30 13 34 44 31 35 45 31 35 45 30 33 31 12 32 30 13 34 44 14 36 46 32 37 47 32 37 47 31 35 45 13 34 44 14 36 46 15 38 48 33 39 49 33 39 49 32 37 47 14 36 46 15 38 32 16 40 33 34 41 34 34 41 34 33 39 50 15 38 32 16 40 33 17 42 51 35 43 52 35 43 52 34 41 34 16 40 33 17 42 51 18 44 100 36 45 101 36 45 101 35 43 52 17 42 51 18 44 100 19 46 102 37 47 103 37 47 103 36 45 101 18 44 100 19 46 35 20 48 36 38 49 37 38 49 37 37 47 38 19 46 35 20 48 36 21 50 39 39 51 40 39 51 40 38 49 37 20 48 36 21 50 39 22 52 53 40 53 54 40 53 54 39 51 40 21 50 39 22 52 53 23 54 55 41 55 56 41 55 56 40 53 54 22 52 53 23 54 55 24 56 57 42 57 58 42 57 58 41 55 56 23 54 55 24 56 96 25 58 97 43 59 98 43 59 98 42 57 99 24 56 96 25 58 97 8 24 24 26 27 42 26 27 42 43 59 98 25 58 97 24 60 61 23 61 62 22 62 63 22 62 63 21 63 64 20 64 65 20 64 65 19 65 66 18 66 67 22 62 63 20 64 65 18 66 67 18 66 67 17 67 68 16 68 69 16 68 69 15 69 70 14 70 71 18 66 67 16 68 69 14 70 71 14 70 71 13 71 72 12 72 73 12 72 73 11 73 74 10 74 75 14 70 71 12 72 73 10 74 75 18 66 67 14 70 71 10 74 75 22 62 63 18 66 67 10 74 75 10 74 75 9 75 76 8 76 77 22 62 63 10 74 75 8 76 77 24 60 61 22 62 63 8 76 77 25 77 60 24 60 61 8 76 77 27 78 79 28 79 80 29 80 81 29 80 81 30 81 82 31 82 83 31 82 83 32 83 84 33 84 85 29 80 81 31 82 83 33 84 85 33 84 85 34 85 86 35 86 87 35 86 87 36 87 88 37 88 89 33 84 85 35 86 87 37 88 89 37 88 89 38 89 90 39 90 91 39 90 91 40 91 92 41 92 93 37 88 89 39 90 91 41 92 93 33 84 85 37 88 89 41 92 93 29 80 81 33 84 85 41 92 93 41 92 93 42 93 94 43 94 95 29 80 81 41 92 93 43 94 95 27 78 79 29 80 81 43 94 95 26 95 78 27 78 79 43 94 95</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_lights>
+    <light id="EnvironmentAmbientLight" name="EnvironmentAmbientLight">
+      <technique_common>
+        <ambient>
+          <color>0 0 0</color>
+        </ambient>
+      </technique_common>
+    </light>
+  </library_lights>
+  <library_images>
+    <image id="UnrapFlag2_png">
+      <init_from>file:///F:/Moje%20dokumnety/Tafe/Diploma/Advanced%20Torque/CTF/art/shapes/JediFlags/images/UnrapFlag2.png</init_from>
+    </image>
+  </library_images>
+  <library_visual_scenes>
+    <visual_scene id="MaxScene">
+      <node name="EnvironmentAmbientLight">
+        <instance_light url="#EnvironmentAmbientLight"/>
+      </node>
+      <node id="node-Box01" name="Box01">
+        <translate>0.337 -0.5986302 60.12764</translate>
+        <rotate>-1 0 0 -90</rotate>
+        <instance_geometry url="#geom-Box01">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material__0_1" target="#Material__0-material">
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="1"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#MaxScene"/>
+  </scene>
+</COLLADA>

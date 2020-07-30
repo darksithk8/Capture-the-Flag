@@ -1,0 +1,276 @@
+//--- OBJECT WRITE BEGIN ---
+new SimGroup(MissionGroup) {
+   canSaveDynamicFields = "1";
+      enabled = "1";
+
+   new LevelInfo(theLevelInfo) {
+      nearClip = "0.1";
+      visibleDistance = "2000";
+      decalBias = "0.0015";
+      fogColor = "1 1 0.6 1";
+      fogDensity = "0.001";
+      fogDensityOffset = "10";
+      fogAtmosphereHeight = "100";
+      canvasClearColor = "233 220 143 255";
+      advancedLightmapSupport = "0";
+         desc0 = "Take enemys, flag and run to ur base";
+         LevelName = "Capture the Flag";
+   };
+   new ScatterSky() {
+      skyBrightness = "30";
+      mieScattering = "0.0015";
+      rayleighScattering = "0.0035";
+      sunScale = "1 1 0.8 1";
+      ambientScale = "0.5 0.5 0.4 1";
+      exposure = "0.85";
+      azimuth = "84";
+      elevation = "54";
+      castShadows = "1";
+      brightness = "1";
+      flareType = "LightFlareExample0";
+      flareScale = "1";
+      nightColor = "0.0196078 0.0117647 0.109804 1";
+      moonEnabled = "1";
+      moonTexture = "core/art/skies/night/moon_wglow";
+      moonScale = "0.3";
+      moonTint = "0.192157 0.192157 0.192157 1";
+      useNightCubemap = "0";
+      attenuationRatio = "0 1 1";
+      shadowType = "PSSM";
+      texSize = "512";
+      overDarkFactor = "2000 1000 500 100";
+      shadowDistance = "400";
+      shadowSoftness = "0.15";
+      numSplits = "4";
+      logWeight = "0.91";
+      fadeStartDistance = "0";
+      lastSplitTerrainOnly = "0";
+      splitFadeDistances = "10 20 30 40";
+      representedInLightmap = "0";
+      shadowDarkenColor = "0 0 0 -1";
+      includeLightmappedGeometryInShadow = "0";
+      position = "0 0 0";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+         sunBrightness = "50";
+   };
+   new TerrainBlock(theTerrain) {
+      terrainFile = "art/terrains/Empty Terrain_0.ter";
+      squareSize = "2";
+      tile = "0";
+      baseTexSize = "1024";
+      screenError = "16";
+      position = "-1024 -1024 179.978";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+   };
+   new SimGroup(PlayerDropPoints) {
+      canSaveDynamicFields = "1";
+         enabled = "1";
+
+      new SimGroup(teamOneSpawnPoints) {
+         canSaveDynamicFields = "1";
+
+         new SpawnSphere() {
+            autoSpawn = "0";
+            radius = "1";
+            sphereWeight = "1";
+            indoorWeight = "1";
+            outdoorWeight = "1";
+            dataBlock = "SpawnSphereMarker";
+            position = "-32.6987 127.551 273.105";
+            rotation = "1 0 0 0";
+            scale = "1 1 1";
+            canSaveDynamicFields = "1";
+               enabled = "1";
+               homingCount = "0";
+               lockCount = "0";
+               TypeBool locked = "False";
+         };
+      };
+      new SimGroup(teamTwoSpawnPoints) {
+         canSaveDynamicFields = "1";
+
+         new SpawnSphere() {
+            autoSpawn = "0";
+            radius = "1";
+            sphereWeight = "1";
+            indoorWeight = "1";
+            outdoorWeight = "1";
+            dataBlock = "SpawnSphereMarker";
+            position = "48.5929 -51.0554 286.632";
+            rotation = "1 0 0 0";
+            scale = "1 1 1";
+            canSaveDynamicFields = "1";
+               enabled = "1";
+               homingCount = "0";
+               lockCount = "0";
+               TypeBool locked = "False";
+         };
+      };
+   };
+   new SimGroup(allPlayers) {
+      canSaveDynamicFields = "1";
+
+      new SimGroup(Team1Objects) {
+         canSaveDynamicFields = "1";
+
+         new Trigger(TriggerOfTeam1) {
+            polyhedron = "-0.5000000 0.5000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 0.0000000 1.0000000";
+            dataBlock = "CapFlagTrigger1";
+            position = "-38.8019 132.164 242.136";
+            rotation = "1 0 0 0";
+            scale = "4 4 1";
+            canSaveDynamicFields = "1";
+               invcheckitem = "Flag1";
+               respawnat = "Flag1Respawn";
+               team = "1";
+         };
+         new Marker(Flag1Respawn) {
+            seqNum = "1";
+            type = "Normal";
+            msToNext = "1000";
+            smoothingType = "Spline";
+            position = "-38.8019 132.164 242.136";
+            rotation = "1 0 0 0";
+            scale = "1 1 1";
+            canSaveDynamicFields = "1";
+         };
+         new StaticShape(Flag1SS) {
+            receiveSunLight = "1";
+            receiveLMLighting = "1";
+            useCustomAmbientLighting = "0";
+            customAmbientLighting = "0 0 0 1";
+            dataBlock = "Flag1";
+            position = "-38.8019 132.164 242.136";
+            rotation = "1 0 0 0";
+            scale = "1 1 1";
+            canSaveDynamicFields = "1";
+         };
+      };
+      new SimGroup(Team2Objects) {
+         canSaveDynamicFields = "1";
+
+         new Trigger(TriggerOfTeam2) {
+            polyhedron = "-0.5000000 0.5000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 0.0000000 1.0000000";
+            dataBlock = "CapFlagTrigger2";
+            position = "38.0649 -16.4756 242.26";
+            rotation = "1 0 0 0";
+            scale = "4 4 1";
+            canSaveDynamicFields = "1";
+               invcheckitem = "Flag2";
+               respawnat = "Flag2Respawn";
+               team = "2";
+         };
+         new Marker(Flag2Respawn) {
+            seqNum = "3";
+            type = "Normal";
+            msToNext = "1000";
+            smoothingType = "Spline";
+            position = "38.0649 -16.4756 242.26";
+            rotation = "1 0 0 0";
+            scale = "1 1 1";
+            canSaveDynamicFields = "1";
+         };
+         new StaticShape(Flag2SS) {
+            receiveSunLight = "1";
+            receiveLMLighting = "1";
+            useCustomAmbientLighting = "0";
+            customAmbientLighting = "0 0 0 1";
+            dataBlock = "Flag2";
+            position = "38.0649 -16.4756 242.26";
+            rotation = "1 0 0 0";
+            scale = "1 1 1";
+            canSaveDynamicFields = "1";
+         };
+      };
+      new SimGroup(teamOnePlayers) {
+         canSaveDynamicFields = "1";
+
+         
+      };
+      new SimGroup(teamTwoPlayers) {
+         canSaveDynamicFields = "1";
+      };
+   };
+   new SimGroup(CameraSpawnPoints) {
+      canSaveDynamicFields = "1";
+
+      new SpawnSphere(DefaultCameraSpawnSphere) {
+         spawnClass = "Player";
+         spawnDatablock = "DefaultPlayerData";
+         autoSpawn = "0";
+         radius = "1";
+         sphereWeight = "1";
+         indoorWeight = "100";
+         outdoorWeight = "100";
+         dataBlock = "SpawnSphereMarker";
+         position = "-61.6431 16.5941 292.426";
+         rotation = "1 0 0 0";
+         scale = "1 1 1";
+         canSaveDynamicFields = "1";
+      };
+   };
+   new Item() {
+      collideable = "0";
+      static = "1";
+      rotate = "1";
+      rotate2 = "0";
+      dataBlock = "RocketLauncher";
+      position = "-44.8969 165.892 244.182";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+   };
+   new Item() {
+      collideable = "0";
+      static = "1";
+      rotate = "1";
+      rotate2 = "0";
+      dataBlock = "RocketLauncherAmmo";
+      position = "-43.8046 166.031 244.108";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+   };
+   new Item() {
+      collideable = "0";
+      static = "1";
+      rotate = "1";
+      rotate2 = "0";
+      dataBlock = "RocketLauncherAmmo";
+      position = "44.38 -35.1546 244.407";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+   };
+   new Item() {
+      collideable = "0";
+      static = "1";
+      rotate = "1";
+      rotate2 = "0";
+      dataBlock = "RocketLauncher";
+      position = "44.4542 -33.6527 244.358";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+   };
+   new TSStatic() {
+      shapeName = "art/shapes/rocks/rock1.dts";
+      playAmbient = "1";
+      receiveSunLight = "1";
+      receiveLMLighting = "1";
+      useCustomAmbientLighting = "0";
+      customAmbientLighting = "0 0 0 1";
+      collisionType = "Collision Mesh";
+      allowPlayerStep = "1";
+      renderNormals = "0";
+      position = "0.937922 150.199 241.981";
+      rotation = "1 0 0 0";
+      scale = "1 1 1";
+      canSaveDynamicFields = "1";
+   };
+};
+//--- OBJECT WRITE END ---

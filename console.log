@@ -1,0 +1,114 @@
+//-------------------------- 7/28/2020 -- 19:19:19 -----
+Processor Init:
+   Intel Core, ~2.50 Ghz
+   FPU detected
+   MMX detected
+   SSE detected
+   SSE2 detected
+   MP detected [4 cores, 4 logical, 1 physical]
+ 
+Math Init:
+   Installing Standard C extensions
+   Installing Assembly extensions
+   Installing FPU extensions
+   Installing MMX extensions
+   Installing SSE extensions
+ 
+Initializing platform...
+Input Init:
+   keyboard0 input device created.
+   mouse0 input device created.
+   DirectInput enabled.
+
+Done
+SFXFMODProvider - Could not locate fmodex.dll - FMod  not available.
+SFXALProvider - OpenAL not available.
+--------- Loading DIRS ---------
+
+--------- Parsing Arguments ---------
+Binding server port to default IP
+UDP initialized on port 0
+Attempting to create GFX device: NVIDIA GeForce GTX 1060 (D3D9)
+Device created, setting adapter and enumerating modes
+Win32Window::setVideoMode - invoking curtain
+   Cur. D3DDevice ref count=1
+   Pix version detected: 3.000000
+   Vert version detected: 3.000000
+   Maximum number of simultaneous samplers: 16
+   Number of simultaneous render targets: 4
+   Hardware occlusion query detected: Yes
+WMIVideoInfo: DxDiag initialized
+Initializing GFXCardProfiler (D3D9)
+   o Chipset : 'GeForce GTX 1060'
+   o Card    : 'GeForce GTX 1060'
+   o Version : '25.21.0014.1971'
+   - Scanning card capabilities...
+GFXCardProfiler (D3D9) - Setting capability 'autoMipMapLevel' to 1.
+GFXCardProfiler (D3D9) - Setting capability 'maxTextureWidth' to 16384.
+GFXCardProfiler (D3D9) - Setting capability 'maxTextureHeight' to 16384.
+GFXCardProfiler (D3D9) - Setting capability 'maxTextureSize' to 16384.
+GFXCardProfiler (D3D9) - Setting capability 'lerpDetailBlend' to 1.
+GFXCardProfiler (D3D9) - Setting capability 'fourStageDetailBlend' to 1.
+   - Loading card profiles...
+      - Loaded card profile core/profile/D3D9.cs
+      - No card profile core/profile/D3D9.GeForceGTX1060.cs exists
+      - No card profile core/profile/D3D9.GeForceGTX1060.GeForceGTX1060.cs exists
+      - No card profile core/profile/D3D9.GeForceGTX1060.GeForceGTX1060.252100141971.cs exists
+ % - Initialized Core
+
+--------- Initializing Directory: scripts ---------
+sfxStartup...
+SFXSystem::createDevice - created DirectSound device 'Primary Sound Driver'
+SFXDSDevice::setDistanceModel - 'linear' distance attenuation not supported
+   Provider: DirectSound
+   Device: Primary Sound Driver
+   Hardware: No
+   Buffers: 16
+
+--------- Initializing AI: Server Scripts ---------
+
+--------- Initializing AI: Client Scripts ---------
+
+--------- Initializing Lighting Systems ---------
+Using Advanced Lighting
+
+
+--------------
+Attempting to set resolution to "1920 1080 true 32 60 0"
+Accepted Mode: 
+--Resolution : 1920 1080
+--Full Screen : Yes
+--Bits Per Pixel : 32
+--Refresh Rate : 60
+--FSAA Level 0
+--------------
+Binding server port to default IP
+UDP initialized on port 0
+setContent(): Invalid control: BlankGui
+ % - Initializing Tools
+ % - Initializing Tools Base
+findFirstFile() invalid initial search directory: 'game:/tools/editorClasses/scripts/platform'
+findFirstFile() search directory not found: 'tools/editorClasses/scripts/platform/*.ed.cs'
+findFirstFile() invalid initial search directory: 'game:/tools/editorClasses/scripts/platform'
+findFirstFile() search directory not found: 'tools/editorClasses/scripts/platform/*.ed.cs.edso'
+ % - Initializing Base Editor
+ % - Initializing World Editor
+ - Initializing Datablock Editor
+ % - Initializing Debugger
+ % - Initializing Decal Editor
+ % - Initializing Gui Builder
+ % - Initializing Material Editor
+ % - Initializing Mesh Road Editor
+ % - Initializing Particle Editor
+ % - Initializing Physics Tools
+No physics plugin exists.
+ % - Initializing River Editor
+ - Initializing Road and Path Editor
+ % - Initializing Shape Editor
+Engine initialized...
+Window focus status changed: focus: 1
+Exporting Gui preferences.
+Exporting server prefs...
+Exporting client prefs
+Exporting server prefs
+Cur. D3DDevice ref count=1

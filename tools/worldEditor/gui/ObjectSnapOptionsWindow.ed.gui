@@ -1,0 +1,847 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(ObjectSnapOptionsContainer, EditorGuiGroup) {
+   canSaveDynamicFields = "0";
+   Enabled = "1";
+   isContainer = "1";
+   Profile = "GuiModelessDialogProfile";
+   HorizSizing = "right";
+   VertSizing = "bottom";
+   Position = "0 0";
+   Extent = "800 600";
+   MinExtent = "8 2";
+   canSave = "1";
+   isDecoy = "0";
+   Visible = "1";
+   tooltipprofile = "GuiToolTipProfile";
+   hovertime = "1000";
+
+   new GuiWindowCollapseCtrl(ESnapOptions) {
+      internalName = "SnapOptionsWindow";
+      Enabled = "1";
+      isContainer = "1";
+      profile = "GuiWindowProfile";
+      HorizSizing = "windowRelative";
+      VertSizing = "windowRelative";
+      resizeWidth = "0";
+      resizeHeight = "1";
+      canClose = "1";
+      canMinimize = "0";
+      canMaximize = "0";
+      position = "340 31";
+      extent =" 175 269";
+      MinExtent = "175 130";
+      text = "Snap Options";
+      closeCommand = "ESnapOptions.hideDialog();";
+      EdgeSnap = "0";
+      canCollapse = "0";
+      visible = "0";
+      Margin = "5 5 5 5";
+      Padding = "5 5 5 5";
+
+      new GuiContainer(){
+         HorizSizing = "width";
+         VertSizing = "height";
+         Position = "5 24";
+         Extent = "190 24";
+         Docking = "Top";
+         Margin = "3 3 3 3";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         
+         new GuiStackControl() {
+            StackingType = "Horizontal";
+            HorizStacking = "Left to Right";
+            VertStacking = "Top to Bottom";
+            Padding = "3";
+            canSaveDynamicFields = "0";
+            Enabled = "1";
+            isContainer = "1";
+            Profile = "GuiDefaultProfile";
+            HorizSizing = "width";
+            VertSizing = "bottom";
+            Position = "0 0";
+            Extent = "190 23";
+            MinExtent = "16 16";
+            canSave = "1";
+            isDecoy = "0";
+            Visible = "1";
+            tooltipprofile = "GuiToolTipProfile";
+            hovertime = "1000";
+            
+            new GuiButtonCtrl() {
+               internalName = "NoSnapButton";
+               canSaveDynamicFields = "0";
+               Enabled = "1";
+               isContainer = "0";
+               Profile = "GuiButtonProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               Position = "0 0";
+               Extent = "50 23";
+               MinExtent = "8 8";
+               canSave = "1";
+               Visible = "1";
+               Command = "toggleSnapingOptions(\"\");";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               text = "None";
+               groupNum = "1";
+               buttonType = "RadioButton";
+               useMouseEvents = "0";
+            };
+
+            new GuiButtonCtrl() {
+               internalName = "TerrainSnapButton";
+               canSaveDynamicFields = "0";
+               Enabled = "1";
+               isContainer = "0";
+               Profile = "GuiButtonProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               Position = "0 0";
+               Extent = "55 23";
+               MinExtent = "8 8";
+               canSave = "1";
+               Visible = "1";
+               Command = "toggleSnapingOptions(\"terrain\");";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               text = "Terrain";
+               groupNum = "1";
+               buttonType = "RadioButton";
+               useMouseEvents = "0";
+            };
+
+            new GuiButtonCtrl() {
+               internalName = "SoftSnapButton";
+               canSaveDynamicFields = "0";
+               Enabled = "1";
+               isContainer = "0";
+               Profile = "GuiButtonProfile";
+               HorizSizing = "right";
+               VertSizing = "bottom";
+               Position = "0 0";
+               Extent = "55 23";
+               MinExtent = "8 8";
+               canSave = "1";
+               Visible = "1";
+               Command = "toggleSnapingOptions(\"soft\");";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               text = "Soft";
+               groupNum = "1";
+               buttonType = "RadioButton";
+               useMouseEvents = "0";
+            };
+         };
+      };
+                  
+      new GuiTabBookCtrl(ESnapOptionsTabBook) {
+         canSaveDynamicFields = "0";
+         isContainer = "1";
+         Profile = "GuiTabBookProfile";
+         HorizSizing = "width";
+         VertSizing = "height";
+         Position = "5 52";
+         Extent = "190 240";
+         MinExtent = "8 2";
+         canSave = "1";
+         Visible = "1";
+         hovertime = "1000";
+         Docking = "Client";
+         Margin = "0 0 3 3";
+         Padding = "0 0 0 0";
+         AnchorTop = "1";
+         AnchorBottom = "0";
+         AnchorLeft = "1";
+         AnchorRight = "0";
+         TabPosition = "Top";
+         TabMargin = "0";
+         MinTabWidth = "75";
+
+         new GuiTabPageCtrl(ESnapOptionsTabTerrain) {
+            canSaveDynamicFields = "0";
+            Profile = "GuiTabPageProfile";
+            HorizSizing = "width";
+            VertSizing = "height";
+            Margin = "0 0 0 0";
+            Position = "0 19";
+            Extent = "190 220";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "0";
+            hovertime = "1000";
+            Docking = "None";
+            text = "Terrain Snap";
+            maxLength = "255";
+            
+            new GuiScrollCtrl() {
+               canSaveDynamicFields = "0";
+               Enabled = "1";
+               isContainer = "1";
+               Profile = "GuiScrollProfile";
+               HorizSizing = "width";
+               VertSizing = "height";
+               Docking = "Client";
+               Position = "4 12";
+               Extent = "156 190";
+               MinExtent = "8 2";
+               canSave = "1";
+               isDecoy = "0";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               Margin = "0 0 0 0";
+               Padding = "0 0 0 0";
+               AnchorTop = "1";
+               AnchorBottom = "0";
+               AnchorLeft = "1";
+               AnchorRight = "0";
+               willFirstRespond = "1";
+               hScrollBar = "alwaysOff";
+               vScrollBar = "dynamic";
+               lockHorizScroll = "true";
+               lockVertScroll = "false";
+               constantThumbHeight = "0";
+               childMargin = "2 2";
+
+               new GuiControl() {
+                  Enabled = "1";
+                  Profile = "GuiDefaultProfile";
+                  Position = "0 0";
+                  Extent = "190 90";
+                  MinExtent = "16 16";
+                  Visible = "1";
+               
+                  new GuiTextCtrl() {
+                     canSaveDynamicFields = "0";
+                     Enabled = "1";
+                     isContainer = "0";
+                     Profile = "GuiDefaultProfile";
+                     HorizSizing = "right";
+                     VertSizing = "bottom";
+                     position = "0 0";
+                     Extent = "190 18";
+                     MinExtent = "8 2";
+                     canSave = "1";
+                     Visible = "1";
+                     hovertime = "1000";
+                     Margin = "0 0 0 0";
+                     Padding = "0 0 0 0";
+                     AnchorTop = "1";
+                     AnchorBottom = "0";
+                     AnchorLeft = "1";
+                     AnchorRight = "0";
+                     text = "Surface Alignment:";
+                     maxLength = "1024";
+                  };
+                  
+                  new GuiDynamicCtrlArrayControl() {
+                     canSaveDynamicFields = "0";
+                     internalName = "TerrainSnapAlignment";
+                     Enabled = "1";
+                     Profile = "GuiDefaultProfile";
+                     HorizSizing = "right";
+                     VertSizing = "bottom";
+                     Position = "0 18";
+                     Extent = "190 72";
+                     MinExtent = "16 16";
+                     canSave = "1";
+                     isDecoy = "0";
+                     Visible = "1";
+                     tooltipprofile = "GuiToolTipProfile";
+                     hovertime = "1000";
+                     colCount = "2";
+                     colSize = "85";
+                     rowSize = "18";
+                     rowSpacing = "0";
+                     colSpacing = "0";
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "NoAlignment";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"None\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "No Alignment";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                     
+                     new GuiControl() {
+                        Position = "0 0";
+                        Extent = "40 18";
+                        Visible = "1";
+                     };
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "posX";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"+X\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "+ X Axis";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "negX";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"-X\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "- X Axis";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "posY";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"+Y\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "+ Y Axis";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "negY";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"-Y\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "- Y Axis";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "posZ";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"+Z\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "+ Z Axis";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                     
+                     new GuiRadioCtrl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "negZ";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiRadioProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 0";
+                        Extent = "40 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        Command = "ESnapOptions.setTerrainSnapAlignment(\"-Z\");";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        text = "- Z Axis";
+                        groupNum = "1";
+                        buttonType = "RadioButton";
+                        useMouseEvents = "0";
+                        useInactiveState = "0";
+                     };
+                  };
+               };
+            };
+         };
+         new GuiTabPageCtrl(ESnapOptionsTabSoft) {
+            canSaveDynamicFields = "0";
+            Profile = "GuiTabPageProfile";
+            HorizSizing = "width";
+            VertSizing = "height";
+            Margin = "0 0 0 0";
+            Position = "0 19";
+            Extent = "190 220";
+            MinExtent = "8 2";
+            canSave = "1";
+            Visible = "0";
+            hovertime = "1000";
+            Docking = "None";
+            text = "Soft Snap";
+            maxLength = "255";
+            
+            new GuiScrollCtrl() {
+               canSaveDynamicFields = "0";
+               Enabled = "1";
+               isContainer = "1";
+               Profile = "GuiScrollProfile";
+               HorizSizing = "width";
+               VertSizing = "height";
+               Docking = "Client";
+               Position = "4 12";
+               Extent = "186 190";
+               MinExtent = "8 2";
+               canSave = "1";
+               isDecoy = "0";
+               Visible = "1";
+               tooltipprofile = "GuiToolTipProfile";
+               hovertime = "1000";
+               Margin = "0 0 0 0";
+               Padding = "0 0 0 0";
+               AnchorTop = "1";
+               AnchorBottom = "0";
+               AnchorLeft = "1";
+               AnchorRight = "0";
+               willFirstRespond = "1";
+               hScrollBar = "alwaysOff";
+               vScrollBar = "dynamic";
+               lockHorizScroll = "true";
+               lockVertScroll = "false";
+               constantThumbHeight = "0";
+               childMargin = "2 2";
+
+               new GuiStackControl() {
+                  StackingType = "Vertical";
+                  HorizStacking = "Left to Right";
+                  VertStacking = "Top to Bottom";
+                  Padding = "5";
+                  canSaveDynamicFields = "0";
+                  internalName = "theVisOptionsList";
+                  Enabled = "1";
+                  isContainer = "0";
+                  Profile = "GuiDefaultProfile";
+                  HorizSizing = "right";
+                  VertSizing = "bottom";
+                  Position = "2 2";
+                  Extent = "190 190";
+                  MinExtent = "16 16";
+                  canSave = "1";
+                  isDecoy = "0";
+                  Visible = "1";
+                  tooltipprofile = "GuiToolTipProfile";
+                  hovertime = "1000";
+                  
+                  new GuiControl() {
+                     Enabled = "1";
+                     Profile = "GuiDefaultProfile";
+                     HorizSizing = "width";
+                     Position = "0 0";
+                     Extent = "190 18";
+                     MinExtent = "16 16";
+                     Visible = "1";
+                     
+                     new GuiTextCtrl() {
+                        canSaveDynamicFields = "0";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiDefaultProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        position = "0 0";
+                        Extent = "90 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        Visible = "1";
+                        hovertime = "1000";
+                        Margin = "0 0 0 0";
+                        Padding = "0 0 0 0";
+                        AnchorTop = "1";
+                        AnchorBottom = "0";
+                        AnchorLeft = "1";
+                        AnchorRight = "0";
+                        text = "Snap Size:";
+                        maxLength = "1024";
+                     };
+                     
+                     new GuiTextEditCtrl() {
+                        internalName = "SnapSize";
+                        profile="GuiTextEditProfileNumbersOnly";
+                        HorizSizing = "left";
+                        position = "136 0";
+                        Extent = "44 18";
+                        text ="2.0";
+                        maxLength = "6";
+                        AltCommand = "ESnapOptions.setSoftSnapSize();";
+                     };
+                  };
+                  
+                  new GuiControl() {
+                     Enabled = "1";
+                     Profile = "GuiDefaultProfile";
+                     Position = "0 0";
+                     Extent = "190 90";
+                     MinExtent = "16 16";
+                     Visible = "1";
+                  
+                     new GuiTextCtrl() {
+                        canSaveDynamicFields = "0";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiDefaultProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        position = "0 0";
+                        Extent = "190 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        Visible = "1";
+                        hovertime = "1000";
+                        Margin = "0 0 0 0";
+                        Padding = "0 0 0 0";
+                        AnchorTop = "1";
+                        AnchorBottom = "0";
+                        AnchorLeft = "1";
+                        AnchorRight = "0";
+                        text = "Surface Alignment:";
+                        maxLength = "1024";
+                     };
+                     
+                     new GuiDynamicCtrlArrayControl() {
+                        canSaveDynamicFields = "0";
+                        internalName = "SoftSnapAlignment";
+                        Enabled = "1";
+                        Profile = "GuiDefaultProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        Position = "0 18";
+                        Extent = "190 72";
+                        MinExtent = "16 16";
+                        canSave = "1";
+                        isDecoy = "0";
+                        Visible = "1";
+                        tooltipprofile = "GuiToolTipProfile";
+                        hovertime = "1000";
+                        colCount = "2";
+                        colSize = "85";
+                        rowSize = "18";
+                        rowSpacing = "0";
+                        colSpacing = "0";
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "NoAlignment";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"None\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "No Alignment";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                        
+                        new GuiControl() {
+                           Position = "0 0";
+                           Extent = "40 18";
+                           Visible = "1";
+                        };
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "posX";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"+X\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "+ X Axis";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "negX";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"-X\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "- X Axis";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "posY";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"+Y\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "+ Y Axis";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "negY";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"-Y\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "- Y Axis";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "posZ";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"+Z\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "+ Z Axis";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                        
+                        new GuiRadioCtrl() {
+                           canSaveDynamicFields = "0";
+                           internalName = "negZ";
+                           Enabled = "1";
+                           isContainer = "0";
+                           Profile = "GuiRadioProfile";
+                           HorizSizing = "right";
+                           VertSizing = "bottom";
+                           Position = "0 0";
+                           Extent = "40 18";
+                           MinExtent = "8 2";
+                           canSave = "1";
+                           isDecoy = "0";
+                           Visible = "1";
+                           Command = "ESnapOptions.setSoftSnapAlignment(\"-Z\");";
+                           tooltipprofile = "GuiToolTipProfile";
+                           hovertime = "1000";
+                           text = "- Z Axis";
+                           groupNum = "1";
+                           buttonType = "RadioButton";
+                           useMouseEvents = "0";
+                           useInactiveState = "0";
+                        };
+                     };
+                  };
+                  
+                  new GuiCheckBoxCtrl(){
+                     internalName = "RenderSnapBounds";
+                     Enabled = "1";
+                     Profile = "GuiCheckBoxProfile";
+                     position = "1 0";
+                     Extent = "190 18";
+                     text = "Render Snap Bounds";
+                     Command = "ESnapOptions.toggleRenderSnapBounds();";
+                  };
+                  
+                  new GuiCheckBoxCtrl(){
+                     internalName = "RenderSnappedTriangle";
+                     Enabled = "1";
+                     Profile = "GuiCheckBoxProfile";
+                     position = "1 0";
+                     Extent = "190 18";
+                     text = "Render Snapped Triangle";
+                     Command = "ESnapOptions.toggleRenderSnappedTriangle();";
+                  };
+                  
+                  new GuiControl() {
+                     Enabled = "1";
+                     Profile = "GuiDefaultProfile";
+                     HorizSizing = "width";
+                     Position = "0 0";
+                     Extent = "190 18";
+                     MinExtent = "16 16";
+                     Visible = "1";
+                     
+                     new GuiTextCtrl() {
+                        canSaveDynamicFields = "0";
+                        Enabled = "1";
+                        isContainer = "0";
+                        Profile = "GuiDefaultProfile";
+                        HorizSizing = "right";
+                        VertSizing = "bottom";
+                        position = "0 0";
+                        Extent = "110 18";
+                        MinExtent = "8 2";
+                        canSave = "1";
+                        Visible = "1";
+                        hovertime = "1000";
+                        Margin = "0 0 0 0";
+                        Padding = "0 0 0 0";
+                        AnchorTop = "1";
+                        AnchorBottom = "0";
+                        AnchorLeft = "1";
+                        AnchorRight = "0";
+                        text = "Backface Tolerance:";
+                        maxLength = "1024";
+                     };
+                     
+                     new GuiTextEditCtrl() {
+                        internalName = "SnapBackfaceTolerance";
+                        profile="GuiTextEditProfileNumbersOnly";
+                        HorizSizing = "left";
+                        position = "136 0";
+                        Extent = "44 18";
+                        text ="0.5";
+                        maxLength = "6";
+                        AltCommand = "ESnapOptions.getSoftSnapBackfaceTolerance();";
+                     };
+                  };
+               };
+            };
+         };
+      };
+   };
+};

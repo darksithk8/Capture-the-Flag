@@ -1,0 +1,16 @@
+<TorsionProjectOptions>
+<Address>127.0.0.1</Address>
+<Password>password</Password>
+<Port>6060</Port>
+<LastConfig>Release</LastConfig>
+<Breakpoints/>
+<Bookmarks/>
+<OpenFiles>
+<File ScrollX="0" ScrollY="455" Active="true">scripts\server\aiPlayer.cs</File>
+<File ScrollX="0" ScrollY="0">art\datablocks\team1Objectives.cs</File>
+<File ScrollX="0" ScrollY="0">art\gui\team1Won.cs</File>
+<File ScrollX="0" ScrollY="0">art\gui\team1won.gui</File>
+<File ScrollX="0" ScrollY="44">scripts\client\init.cs</File>
+<File ScrollX="0" ScrollY="0">art\gui\team2Won.cs</File>
+</OpenFiles>
+</TorsionProjectOptions>

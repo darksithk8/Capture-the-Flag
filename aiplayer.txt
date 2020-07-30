@@ -1,0 +1,13 @@
+datablock PlayerData(team1bot : ForgeSoldierData)
+{
+   shapeFile = "art/shapes/players/ForgeSoldier/ForgeSoldier.dts";
+   classname = "BotBehaviour";
+   
+   mass = 90;
+   runForce = 48 * 90;
+   runEnergyDrain = 0;
+   minRunEnergy = 0;
+   maxForwardSpeed = 6;
+   maxBackwardSpeed = 13;
+   maxSideSpeed = 13;
+};

@@ -1,0 +1,47 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiFadeinBitmapCtrl(team2won) {
+   fadeInTime = "1000";
+   waitTime = "22000";
+   fadeOutTime = "1000";
+   done = "1";
+   bitmap = "art/gui/background";
+   wrap = "0";
+   position = "0 0";
+   extent = "1024 768";
+   minExtent = "8 8";
+   horizSizing = "right";
+   vertSizing = "bottom";
+   profile = "GuiInputCtrlProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      bitmap0 = "art/gui/background";
+      enabled = "1";
+      logo0 = "art/gui/Torque-3D-logo";
+      logoExtent0 = "443 139";
+      logoPos0 = "178 251";
+      
+      new GuiMLTextCtrl() {
+      lineSpacing = "2";
+      allowColorChars = "0";
+      maxChars = "-1";
+      text = "TEAM TWO WON";
+      useURLMouseCursor = "0";
+      isContainer = "0";
+      Profile = "GuiAutoSizeTextProfile";
+      HorizSizing = "right";
+      VertSizing = "bottom";
+      position = "349 86";
+      Extent = "458 118";
+      MinExtent = "8 2";
+      canSave = "1";
+      Visible = "1";
+      tooltipprofile = "GuiToolTipProfile";
+      hovertime = "1000";
+      canSaveDynamicFields = "0";
+   };
+};

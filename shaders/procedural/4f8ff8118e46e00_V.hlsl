@@ -1,0 +1,60 @@
+//*****************************************************************************
+// Torque -- HLSL procedural shader
+//*****************************************************************************
+
+// Features:
+// Vert Position
+// Bumpmap [Deferred]
+// Eye Space Depth (Out)
+// GBuffer Conditioner
+
+struct VertData
+{
+   float3 position        : POSITION;
+   float tangentW        : TEXCOORD3;
+   float3 normal          : NORMAL;
+   float3 T               : TANGENT;
+   float2 texCoord        : TEXCOORD0;
+};
+
+
+struct ConnectData
+{
+   float4 hpos            : POSITION;
+   float3x3 viewToTangent   : TEXCOORD0;
+   float2 out_texCoord    : TEXCOORD3;
+   float4 wsEyeVec        : TEXCOORD4;
+};
+
+
+//-----------------------------------------------------------------------------
+// Main
+//-----------------------------------------------------------------------------
+ConnectData main( VertData IN,
+                  uniform float4x4 modelview       : register(C0),
+                  uniform float4x4 viewToObj       : register(C4),
+                  uniform float4x4 objTrans        : register(C8),
+                  uniform float3   eyePosWorld     : register(C12)
+)
+{
+   ConnectData OUT;
+
+   // Vert Position
+   OUT.hpos = mul(modelview, float4(IN.position.xyz,1));
+   
+   // Bumpmap [Deferred]
+   float3x3 objToTangentSpace;
+   objToTangentSpace[0] = IN.T;
+   objToTangentSpace[1] = cross( IN.T, normalize(IN.normal) ) * IN.tangentW;
+   objToTangentSpace[2] = normalize(IN.normal);
+   float3x3 viewToTangent = mul( objToTangentSpace, (float3x3)viewToObj );
+   OUT.viewToTangent = viewToTangent;
+   OUT.out_texCoord = IN.texCoord;
+   
+   // Eye Space Depth (Out)
+   OUT.wsEyeVec = mul(objTrans, float4(IN.position.xyz,1)) - float4(eyePosWorld, 0.0);
+   
+   // GBuffer Conditioner
+   
+   return OUT;
+}
